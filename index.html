@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="ar">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zain</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lalezar&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        padding: 0px;
+        margin: 0px;
+        scroll-behavior: smooth;
+        box-sizing: border-box;
+      }
+      ::-webkit-scrollbar {
+        background: #1a1a1a;
+        width: 8px;
+      }
+      ::-webkit-scrollbar-thumb {
+        background-color: #b8860b;
+        border-radius: 10px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #fff;
+        margin: 0px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #a8460b;
+      }
+      @media (max-width: 1000px) {
+        ::-webkit-scrollbar {
+          width: 6px;
+        }
+        ::-webkit-scrollbar-thumb {
+          border-radius: 5px;
+        }
+      }
+      @media (max-width: 700px) {
+        ::-webkit-scrollbar {
+          width: 4px;
+        }
+        ::-webkit-scrollbar-thumb {
+          border-radius: 2px;
+        }
+      }
+      #app {
+        background-color: #1a1a1a;
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-family: "Lalezar", "Anton", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+      }
+      nav {
+        background-color: #0f0f0f;
+        width: 200px;
+        height: 100vh;
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed; /* Ensure it's fixed on the side */
+        top: 0;
+        left: 0;
+      }
+      nav ul {
+        width: 180px;
+        height: 90vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+      }
+      nav ul li {
+        transform: rotate(90deg);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        list-style-type: none;
+      }
+      nav ul li a {
+        color: #f5deb3;
+        text-decoration: none;
+        text-align: center;
+        font-size: 20px;
+      }
+      nav ul li a.active {
+        color: #a8460b;
+      }
+      nav ul li:nth-of-type(1) a {
+        font-size: 28px;
+      }
+      nav ul li a:hover {
+        color: #b8860b;
+      }
+      @media (max-width: 1000px) {
+        nav {
+          width: 100px;
+          height: 100vh;
+          padding: 10px;
+        }
+        nav ul {
+          width: 80px;
+        }
+        nav ul li a {
+          font-size: 14px;
+        }
+        nav ul li:nth-of-type(1) a {
+          font-size: 22px;
+        }
+      }
+      @media (max-width: 700px) {
+        nav {
+          width: 50px;
+          padding: 5px;
+        }
+        nav ul {
+          width: 40px;
+        }
+        nav ul li a {
+          font-size: 12px;
+        }
+        nav ul li:nth-of-type(1) a {
+          font-size: 18px;
+        }
+        nav ul li:nth-of-type(4) a {
+          width: 90px;
+        }
+      }
+      #app #view {
+        width: calc(100% - 200px);
+        height: 100vh;
+        overflow-y: auto;
+        position: fixed;
+        top: 0;
+        right: 0;
+      }
+      @media (max-width: 1000px) {
+        #app #view {
+          width: calc(100% - 100px);
+        }
+      }
+      @media (max-width: 700px) {
+        #app #view {
+          width: calc(100% - 50px);
+        }
+      }
+      #header {
+        background-image: url(images/cover.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 40px;
+        font-size: 34px;
+        text-align: center;
+        color: #fff;
+        text-shadow: 0 0 4px #b8860b, 0 0 12px #000;
+        cursor: default;
+      }
+      @media (max-width: 1000px) {
+        #header {
+          padding: 20px;
+          font-size: 24px;
+        }
+      }
+      @media (max-width: 700px) {
+        #header {
+          padding: 10px;
+          font-size: 14px;
+        }
+      }
+      #products {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 10px;
+        padding: 10px;
+      }
+      #products div {
+        height: 260px;
+      }
+      #products div img {
+        width: 100%;
+        height: 100%;
+        filter: grayscale(0.5);
+        transition: filter 0.5s;
+      }
+      #products div img:hover {
+        filter: grayscale(0);
+      }
+      #services {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 10px;
+        padding: 10px;
+      }
+      #services > div {
+        height: 260px;
+        position: relative;
+        border: 5px solid #a8460b;
+      }
+      #services div img {
+        width: 100%;
+        height: 100%;
+        filter: grayscale(0.3);
+        transition: filter 0.5s;
+      }
+      #services div img:hover {
+        filter: grayscale(0);
+      }
+      #services div div {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        background-color: #a8460b;
+        width: 100%;
+        padding: 5px;
+        text-align: center;
+      }
+      #contact {
+        background-color: #0f0f0f;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+      #contact-us {
+        padding: 35px 25px;
+        display: flex;
+        justify-content: space-around;
+      }
+      #contact-us h3 {
+        font-size: 28px;
+        color: #a8460b;
+        font-weight: 500;
+        cursor: default;
+      }
+      #contact-us a {
+        font-size: 28px;
+        text-decoration: none;
+        color: #a8460b;
+        font-weight: 500;
+      }
+      #copyright {
+        padding: 10px;
+        display: flex;
+        justify-content: space-around;
+        background-color: #050505;
+      }
+      #copyright a {
+        font-size: 24px;
+        text-decoration: none;
+        color: #a8460b;
+        font-weight: 500;
+      }
+      @media (max-width: 1000px) {
+        #contact-us {
+          padding: 15px;
+        }
+        #contact-us h3 {
+          font-size: 20px;
+        }
+        #contact-us a {
+          font-size: 20px;
+        }
+        #copyright a {
+          font-size: 16px;
+        }
+      }
+      @media (max-width: 700px) {
+        #contact-us {
+          padding: 10px;
+        }
+        #contact-us h3 {
+          font-size: 14px;
+        }
+        #contact-us a {
+          font-size: 14px;
+        }
+        #copyright a {
+          font-size: 12px;
+        }
+      }
+    </style>
+  </head>
+  <body dir="rtl">
+    <div id="app">
+      <nav>
+        <ul>
+          <li>
+            <a :class="{active: activeSection == 'header'}" href="#header"
+              >Zain</a
+            >
+          </li>
+          <li>
+            <a :class="{active: activeSection == 'products'}" href="#products"
+              >منتجاتنا</a
+            >
+          </li>
+          <li>
+            <a :class="{active: activeSection == 'services'}" href="#services"
+              >خدماتنا</a
+            >
+          </li>
+          <li>
+            <a :class="{active: activeSection == 'contact'}" href="#contact"
+              >تواصل معنا</a
+            >
+          </li>
+        </ul>
+      </nav>
+      <div id="view">
+        <header class="scroll-el" id="header">{{coverMsg}}</header>
+        <section class="scroll-el" id="products">
+          <div v-for="product in Products">
+            <img draggable="false" :src=`images/products/${product.img}`
+            alt="not"/>
+          </div>
+        </section>
+        <section class="scroll-el" id="services">
+          <div v-for="service in Services">
+            <img draggable="false" :src=`images/services/${service.img}`
+            alt="not"/>
+            <div>{{service.des}}</div>
+          </div>
+        </section>
+        <footer class="scroll-el" id="contact">
+          <div id="contact-us">
+            <h3>Ahmed Taha</h3>
+            <h3>01030701122</h3>
+            <a href="https://www.facebook.com/" target="_blank">Facebook</a>
+          </div>
+          <div id="copyright">
+            <a href="https://mahmoudelkekhia.blogspot.com/" target="_blank"
+              >جميع الحقوق محفوظة &copy; Mahmoud Taha</a
+            >
+          </div>
+        </footer>
+      </div>
+    </div>
+
+    <script src="js/vue.min.js"></script>
+    <script>
+      new Vue({
+        el: "#app",
+        data: {
+          coverMsg: `مرحبًا بكم في معرض زين، حيث تتحول أفكاركم إلى واقع رائع، اكتشفوا
+          مجموعة مذهلة من الديكورات الفريدة والورود الجميلة التي تضيف لمسة من
+          السحر إلى كل مناسبة، نحن هنا لجعل كل لحظة خاصة بكم لا تُنسى`,
+          Products: [
+            { img: "1.avif" },
+            { img: "2.avif" },
+            { img: "3.jpg" },
+            { img: "4.jpg" },
+            { img: "5.jpg" },
+            { img: "6.jpg" },
+            { img: "7.jpg" },
+            { img: "8.jpg" },
+            { img: "9.jpg" },
+            { img: "10.jpg" },
+          ],
+          Services: [
+            { img: "1.jpg", des: "تصميم طارات مناسبات" },
+            { img: "2.jpg", des: "طباعة صورتك على المج" },
+            { img: "3.jpg", des: "عمل دروع للتخرج" },
+            { img: "4.jpg", des: "عمل بوكيهات ورد" },
+            { img: "5.jpg", des: "طباعة على التيشرتات" },
+            { img: "6.jpg", des: "صوانى لحفل الزفاف" },
+            { img: "7.jpg", des: "زورونا تجدو المزيد" },
+          ],
+          activeSection: "",
+          boundOnScroll: "",
+        },
+        mounted() {
+          this.boundOnScroll = this.onScroll.bind(this);
+          const viewElement = document.getElementById("view");
+          if (viewElement) {
+            this.onScroll(); // Initial call to set the active section
+            viewElement.addEventListener("scroll", this.boundOnScroll);
+            viewElement.addEventListener("wheel", this.boundOnScroll);
+          }
+        },
+        methods: {
+          onScroll() {
+            const viewElement = document.getElementById("view");
+            const sections = document.querySelectorAll(".scroll-el");
+            let current = "";
+            let height = 0;
+            sections.forEach((section) => {
+              height += section.offsetHeight;
+            });
+            sections.forEach((section) => {
+              const sectionTop = section.offsetTop;
+              const sectionHeight = section.offsetHeight;
+              // Check if the section is in view
+              if (
+                viewElement.scrollTop >= sectionTop - 100 &&
+                viewElement.scrollTop < sectionTop + sectionHeight
+              ) {
+                current = section.getAttribute("id");
+              }
+              if (height == viewElement.scrollTop + viewElement.offsetHeight) {
+                current = "contact";
+              }
+            });
+            this.activeSection = current;
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
