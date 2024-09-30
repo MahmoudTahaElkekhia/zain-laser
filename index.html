@@ -3,7 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Zain</title>
+    <title>Zain Laser</title>
+    <meta
+      name="description"
+      content="Zain Laser تقدم تصميمات خشبية مخصصة تشمل دروع التخرج، الطارات، والسبوع. اجعل مناسبتك مميزة مع تصاميمنا الفريدة!"
+    />
+    <meta
+      name="keywords"
+      content="تصميم خشب, دروع تخرج, هدايا خشبية, تصميمات مخصصة, زين ليزر"
+    />
+    <meta name="author" content="Mahmoud Taha" />
+
+    <link rel="icon" type="image/x-icon" href="images/logo.jpg" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -14,6 +26,11 @@
       href="https://fonts.googleapis.com/css2?family=Lalezar&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+
     <style>
       * {
         padding: 0px;
@@ -60,6 +77,7 @@
         justify-content: space-between;
         align-items: center;
         font-family: "Lalezar", "Anton", sans-serif;
+        font-size: 16px;
         font-weight: 400;
         font-style: normal;
       }
@@ -94,13 +112,10 @@
         color: #f5deb3;
         text-decoration: none;
         text-align: center;
-        font-size: 20px;
+        font-size: 24px;
       }
       nav ul li a.active {
         color: #a8460b;
-      }
-      nav ul li:nth-of-type(1) a {
-        font-size: 28px;
       }
       nav ul li a:hover {
         color: #b8860b;
@@ -115,10 +130,7 @@
           width: 80px;
         }
         nav ul li a {
-          font-size: 14px;
-        }
-        nav ul li:nth-of-type(1) a {
-          font-size: 22px;
+          font-size: 20px;
         }
       }
       @media (max-width: 700px) {
@@ -130,10 +142,7 @@
           width: 40px;
         }
         nav ul li a {
-          font-size: 12px;
-        }
-        nav ul li:nth-of-type(1) a {
-          font-size: 18px;
+          font-size: 16px;
         }
         nav ul li:nth-of-type(4) a {
           width: 90px;
@@ -158,52 +167,54 @@
         }
       }
       #header {
-        background-image: url(images/cover.jpg);
+        background-image: url(images/cover-zain.jpg);
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
+        filter: brightness(1.1) contrast(1.2);
         width: 100%;
         height: 100vh;
         display: flex;
         justify-content: center;
         align-items: center;
         padding: 40px;
-        font-size: 34px;
+        font-size: 26px;
         text-align: center;
-        color: #fff;
-        text-shadow: 0 0 4px #b8860b, 0 0 12px #000;
+        color: orangered;
+        text-shadow: 0 0 14px #fff, 0 0 20px #000;
         cursor: default;
       }
       @media (max-width: 1000px) {
         #header {
           padding: 20px;
-          font-size: 24px;
+          font-size: 22px;
         }
       }
       @media (max-width: 700px) {
         #header {
           padding: 10px;
-          font-size: 14px;
+          font-size: 18px;
         }
       }
       #products {
         width: 100%;
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
         gap: 10px;
         padding: 10px;
       }
       #products div {
-        height: 260px;
+        height: 190px;
+        overflow: hidden;
       }
       #products div img {
         width: 100%;
         height: 100%;
-        filter: grayscale(0.5);
-        transition: filter 0.5s;
+        transform: scale(1);
+        transition: transform 1s;
       }
       #products div img:hover {
-        filter: grayscale(0);
+        transform: scale(1.2);
       }
       #services {
         width: 100%;
@@ -215,25 +226,25 @@
       #services > div {
         height: 260px;
         position: relative;
-        border: 5px solid #a8460b;
+        border: 2px solid #a8460b55;
       }
       #services div img {
         width: 100%;
         height: 100%;
-        filter: grayscale(0.3);
-        transition: filter 0.5s;
-      }
-      #services div img:hover {
-        filter: grayscale(0);
       }
       #services div div {
+        cursor: default;
         position: absolute;
         left: 0;
         bottom: 0;
-        background-color: #a8460b;
+        background-color: #a8460b99;
         width: 100%;
         padding: 5px;
         text-align: center;
+        transition: background-color 1s;
+      }
+      #services div:hover div {
+        background-color: #a8460bff;
       }
       #contact {
         background-color: #0f0f0f;
@@ -247,13 +258,13 @@
         justify-content: space-around;
       }
       #contact-us h3 {
-        font-size: 28px;
+        font-size: 20px;
         color: #a8460b;
         font-weight: 500;
         cursor: default;
       }
       #contact-us a {
-        font-size: 28px;
+        font-size: 20px;
         text-decoration: none;
         color: #a8460b;
         font-weight: 500;
@@ -275,13 +286,13 @@
           padding: 15px;
         }
         #contact-us h3 {
-          font-size: 20px;
+          font-size: 18px;
         }
         #contact-us a {
-          font-size: 20px;
+          font-size: 18px;
         }
         #copyright a {
-          font-size: 16px;
+          font-size: 18px;
         }
       }
       @media (max-width: 700px) {
@@ -289,13 +300,64 @@
           padding: 10px;
         }
         #contact-us h3 {
-          font-size: 14px;
+          font-size: 12px;
         }
         #contact-us a {
-          font-size: 14px;
+          font-size: 12px;
         }
         #copyright a {
-          font-size: 12px;
+          font-size: 10px;
+        }
+      }
+      #loading-page {
+        width: 100%;
+        height: 100vh;
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 9999;
+        background-color: #000;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding: 0px 50px;
+      }
+      #loading-page div {
+        color: #a8460b;
+        font-size: 28px;
+        font-weight: bold;
+        cursor: default;
+      }
+      .up-down {
+        transform: translateY(0px);
+      }
+      .up-down:nth-of-type(1) {
+        animation: up-down 1s linear 0.1s infinite;
+      }
+      .up-down:nth-of-type(2) {
+        animation: up-down 1s linear 0.2s infinite;
+      }
+      .up-down:nth-of-type(3) {
+        animation: up-down 1s linear 0.3s infinite;
+      }
+      .up-down:nth-of-type(4) {
+        animation: up-down 1s linear 0.4s infinite;
+      }
+      @keyframes up-down {
+        0% {
+          transform: translateY(0px);
+        }
+        25% {
+          transform: translateY(-10px);
+        }
+        50% {
+          transform: translateY(10px);
+        }
+        75% {
+          transform: translateY(-10px);
+        }
+        100% {
+          transform: translateY(0px);
         }
       }
     </style>
@@ -340,19 +402,50 @@
             alt="not"/>
             <div>{{service.des}}</div>
           </div>
+          <div>
+            <img draggable="false" src="images/cover.jpg" alt="not" />
+            <div>زورونا تجدو المزيد</div>
+          </div>
         </section>
         <footer class="scroll-el" id="contact">
           <div id="contact-us">
-            <h3>Ahmed Taha</h3>
-            <h3>01030701122</h3>
-            <a href="https://www.facebook.com/" target="_blank">Facebook</a>
+            <h3>Ahmed Taha <i class="fas fa-user"></i></h3>
+            <a href="tel:+201024321600">
+              01024321600 <i class="fas fa-phone"></i>
+            </a>
+            <a
+              href="https://www.facebook.com/groups/2318888651619159"
+              target="_blank"
+            >
+              Facebook <i class="fab fa-facebook"></i>
+            </a>
           </div>
+
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d720.959770011787!2d30.547773681765868!3d31.20363204588233!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14f65d00553fb05b%3A0xbb3ae1b605a619b8!2szain%20laser!5e1!3m2!1sen!2seg!4v1727328383892!5m2!1sen!2seg"
+            style="
+              border-radius: 10px;
+              border: 0px;
+              width: 90%;
+              height: 350px;
+              margin: 10px auto;
+            "
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
           <div id="copyright">
             <a href="https://mahmoudelkekhia.blogspot.com/" target="_blank"
-              >جميع الحقوق محفوظة &copy; Mahmoud Taha</a
-            >
+              >جميع الحقوق محفوظة &copy; Mahmoud Taha
+            </a>
           </div>
         </footer>
+      </div>
+      <div v-if="Loading" id="loading-page">
+        <div class="up-down">N</div>
+        <div class="up-down">I</div>
+        <div class="up-down">A</div>
+        <div class="up-down">Z</div>
       </div>
     </div>
 
@@ -361,12 +454,13 @@
       new Vue({
         el: "#app",
         data: {
+          Loading: 1,
           coverMsg: `مرحبًا بكم في معرض زين، حيث تتحول أفكاركم إلى واقع رائع، اكتشفوا
           مجموعة مذهلة من الديكورات الفريدة والورود الجميلة التي تضيف لمسة من
           السحر إلى كل مناسبة، نحن هنا لجعل كل لحظة خاصة بكم لا تُنسى`,
           Products: [
-            { img: "1.avif" },
-            { img: "2.avif" },
+            { img: "1.jpg" },
+            { img: "2.jpg" },
             { img: "3.jpg" },
             { img: "4.jpg" },
             { img: "5.jpg" },
@@ -375,15 +469,56 @@
             { img: "8.jpg" },
             { img: "9.jpg" },
             { img: "10.jpg" },
+            { img: "11.jpg" },
+            { img: "12.jpg" },
+            { img: "13.jpg" },
+            { img: "14.jpg" },
+            { img: "15.jpg" },
+            { img: "16.jpg" },
+            { img: "17.jpg" },
+            { img: "18.jpg" },
+            { img: "19.jpg" },
+            { img: "20.jpg" },
+            { img: "21.jpg" },
+            { img: "22.jpg" },
+            { img: "23.jpg" },
+            { img: "24.jpg" },
+            { img: "25.jpg" },
+            { img: "26.jpg" },
+            { img: "27.jpg" },
+            { img: "28.jpg" },
+            { img: "29.jpg" },
+            { img: "30.jpg" },
+            { img: "31.jpg" },
+            { img: "32.jpg" },
+            { img: "33.jpg" },
+            { img: "34.jpg" },
+            { img: "35.jpg" },
+            { img: "36.jpg" },
+            { img: "37.jpg" },
+            { img: "38.jpg" },
+            { img: "39.jpg" },
+            { img: "40.jpg" },
+            { img: "41.jpg" },
+            { img: "42.jpg" },
+            { img: "43.jpg" },
+            { img: "44.jpg" },
+            { img: "45.jpg" },
+            { img: "46.jpg" },
+            { img: "47.jpg" },
+            { img: "48.jpg" },
+            { img: "49.jpg" },
           ],
           Services: [
-            { img: "1.jpg", des: "تصميم طارات مناسبات" },
-            { img: "2.jpg", des: "طباعة صورتك على المج" },
-            { img: "3.jpg", des: "عمل دروع للتخرج" },
-            { img: "4.jpg", des: "عمل بوكيهات ورد" },
-            { img: "5.jpg", des: "طباعة على التيشرتات" },
-            { img: "6.jpg", des: "صوانى لحفل الزفاف" },
-            { img: "7.jpg", des: "زورونا تجدو المزيد" },
+            { img: "1.jpg", des: "تصميم صينية شبكة" },
+            { img: "2.jpg", des: "تصميم صورة على المج" },
+            { img: "3.jpg", des: "تصميم دروع التخرج" },
+            { img: "4.jpg", des: "تصميم بوكيهات ورد" },
+            { img: "5.jpg", des: "تصميم طارات رمضان" },
+            { img: "6.jpg", des: "تصميمات سبوع" },
+            { img: "7.jpg", des: "تصميم ديكور مكتب" },
+            { img: "8.jpg", des: "تصميم كتب الكتاب" },
+            { img: "9.jpg", des: "تصميم عيدية" },
           ],
           activeSection: "",
           boundOnScroll: "",
@@ -396,6 +531,7 @@
             viewElement.addEventListener("scroll", this.boundOnScroll);
             viewElement.addEventListener("wheel", this.boundOnScroll);
           }
+          window.addEventListener("load", this.loading);
         },
         methods: {
           onScroll() {
@@ -421,6 +557,12 @@
               }
             });
             this.activeSection = current;
+          },
+          loading() {
+            setTimeout(() => {
+              this.Loading = 0;
+              console.log(this.Loading);
+            }, 3000);
           },
         },
       });
