@@ -1,0 +1,3 @@
+[submodule "zain-laser"]
+    path = zain-laser
+    url = https://github.com/example/zain-laser.git
