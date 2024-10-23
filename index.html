@@ -372,15 +372,16 @@
             >
           </li>
           <li>
-            <a :class="{active: activeSection == 'products'}" href="#products"
-              >منتجاتنا</a
-            >
-          </li>
-          <li>
             <a :class="{active: activeSection == 'services'}" href="#services"
               >خدماتنا</a
             >
           </li>
+          <li>
+            <a :class="{active: activeSection == 'products'}" href="#products"
+              >منتجاتنا</a
+            >
+          </li>
+
           <li>
             <a :class="{active: activeSection == 'contact'}" href="#contact"
               >تواصل معنا</a
@@ -390,12 +391,7 @@
       </nav>
       <div id="view">
         <header class="scroll-el" id="header">{{coverMsg}}</header>
-        <section class="scroll-el" id="products">
-          <div v-for="product in Products">
-            <img draggable="false" :src=`images/products/${product.img}`
-            alt="not"/>
-          </div>
-        </section>
+
         <section class="scroll-el" id="services">
           <div v-for="service in Services">
             <img draggable="false" :src=`images/services/${service.img}`
@@ -407,6 +403,14 @@
             <div>زورونا تجدو المزيد</div>
           </div>
         </section>
+
+        <section class="scroll-el" id="products">
+          <div v-for="product in Products">
+            <img draggable="false" :src=`images/products/${product.img}`
+            alt="not"/>
+          </div>
+        </section>
+
         <footer class="scroll-el" id="contact">
           <div id="contact-us">
             <h3>Ahmed Taha <i class="fas fa-user"></i></h3>
@@ -459,6 +463,25 @@
           مجموعة مذهلة من الديكورات الفريدة والورود الجميلة التي تضيف لمسة من
           السحر إلى كل مناسبة، نحن هنا لجعل كل لحظة خاصة بكم لا تُنسى`,
           Products: [
+            { img: "50.jpg" },
+            { img: "51.jpg" },
+            { img: "52.jpg" },
+            { img: "53.jpg" },
+            { img: "54.jpg" },
+            { img: "55.jpg" },
+            { img: "56.jpg" },
+            { img: "57.jpg" },
+            { img: "58.jpg" },
+            { img: "59.jpg" },
+            { img: "60.jpg" },
+            { img: "61.jpg" },
+            { img: "62.jpg" },
+            { img: "63.jpg" },
+            { img: "64.jpg" },
+            { img: "65.jpg" },
+            { img: "66.jpg" },
+            { img: "67.jpg" },
+            { img: "68.jpg" },
             { img: "1.jpg" },
             { img: "2.jpg" },
             { img: "3.jpg" },
@@ -562,7 +585,7 @@
             setTimeout(() => {
               this.Loading = 0;
               console.log(this.Loading);
-            }, 3000);
+            }, 1000);
           },
         },
       });
